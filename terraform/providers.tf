@@ -3,8 +3,9 @@ terraform {
   required_version = ">= 1.0"
   required_providers {
     oci = {
-      source  = "hashicorp/oci"
-      version = ">= 4.36.0"
+      source = "hashicorp/oci"
+      #version = ">= 4.36.0"
+      version = "4.65.0"
     }
     kubernetes = {
       source  = "hashicorp/kubernetes"
