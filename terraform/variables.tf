@@ -94,7 +94,7 @@ variable "cluster_workers_visibility" {
 }
 
 variable "cluster_endpoint_visibility" {
-  default     = "Public"
+  default     = "Private"
   description = "The Kubernetes cluster that is created will be hosted on a public subnet with a public IP address auto-assigned or on a private subnet. If Private, additional configuration will be necessary to run kubectl commands"
 
   validation {

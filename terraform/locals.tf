@@ -46,3 +46,15 @@ locals {
   cluster_id             = yamldecode(data.oci_containerengine_cluster_kube_config.oke.content)["users"][0]["user"]["exec"]["args"][4]
   cluster_region         = yamldecode(data.oci_containerengine_cluster_kube_config.oke.content)["users"][0]["user"]["exec"]["args"][6]
 }
+
+locals {
+  # Helm repos
+  helm_repository = {
+    ingress_nginx  = "https://kubernetes.github.io/ingress-nginx"
+    jetstack       = "https://charts.jetstack.io"                        # cert-manager
+    svc_catalog    = "https://kubernetes-sigs.github.io/service-catalog" # Service Catalog
+    grafana        = "https://grafana.github.io/helm-charts"
+    prometheus     = "https://prometheus-community.github.io/helm-charts"
+    metrics_server = "https://kubernetes-sigs.github.io/metrics-server"
+  }
+}

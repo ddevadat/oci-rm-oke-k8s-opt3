@@ -78,4 +78,10 @@ resource "tls_private_key" "oke_worker_node_ssh_key" {
 }
 
 
-
+resource "oci_bastion_bastion" "bastion" {
+  bastion_type                 = "STANDARD"
+  compartment_id               = var.compartment_ocid
+  target_subnet_id             = oci_core_subnet.oke_k8s_endpoint_subnet.id
+  client_cidr_block_allow_list = [local.all_cidr]
+  name                         = "bastion-${random_string.deploy_id.result}"
+}
